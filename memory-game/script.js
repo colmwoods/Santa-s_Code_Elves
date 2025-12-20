@@ -9,6 +9,7 @@ let lockBoard = false;
 let lives = 3;
 let idleTimer = null;
 let matchTimer = null;
+let gameOver = false;
 
 function updateLives() {
     livesDisplay.textContent = "❤️".repeat(lives);
@@ -135,8 +136,15 @@ function checkMatch() {
 function disableCards() {
     firstCard.classList.add("matched");
     secondCard.classList.add("matched");
+
     resetBoard();
+
+    checkWin();
+    if (!lockBoard) {
+        startIdleTimer();
+    }
 }
+
 
 function unflipCards() {
     lockBoard = true;
@@ -161,6 +169,26 @@ function unflipCards() {
     }, 1000);
 }
 
+function checkWin() {
+    const matchedCards = document.querySelectorAll(".memory-card.matched");
+
+    if (matchedCards.length === cards.length) {
+        clearInterval(idleTimer);
+        clearInterval(matchTimer);
+        lockBoard = true;
+
+        timerDisplay.textContent = "🎉 You Win!";
+    }
+}
+
+function endGame(message) {
+    clearInterval(idleTimer);
+    clearInterval(matchTimer);
+    lockBoard = true;
+    gameOver = true;
+
+    timerDisplay.textContent = message;
+}
 
 function resetBoard() {
     [firstCard, secondCard] = [null, null];
