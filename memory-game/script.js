@@ -30,3 +30,17 @@ function previewCards() {
         timerDisplay.textContent = "Select a card";
     }, 8000);
 }
+
+function restartGame() {
+    lives = 3;
+    timerDisplay.textContent = `Lives: ${lives}`;
+
+    cards.forEach(card => {
+        card.classList.remove("flipped", "matched");
+        card.textContent = "";
+    });
+
+    resetBoard();
+    shuffleCards();
+    previewCards();
+}
