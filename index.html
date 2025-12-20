@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 4: Maze</title>
+    <link rel="stylesheet" href="../Santa-s_Code_Elves/assets/styles.css">
+</head>
+<body>
+    <div id="timer"> Time: 60</div>
+    <div id="maze-container">
+            <div id="maze"></div>
+            <div id="player"></div>
+    </div>
+    <div id="controls">
+        <button class="control-btn" id="up" onclick="movePlayer('up')">Up</button>
+        <button class="control-btn" id="left" onclick="movePlayer('left')">Down</button>
+        <button class="control-btn" id="right" onclick="movePlayer('right')">Left</button>
+        <button class="control-btn" id="down" onclick="movePlayer('down')">Right</button>
+    </div>
+    <div id="message">
+        <h2 id="message-text"></h2>
+        <button id="Try again" onclick="initGame ()">Try Again</button>
+    </div>
+
+
+    <script src="../Santa-s_Code_Elves/assets/script.js"></script>
+</body>
+</html>
