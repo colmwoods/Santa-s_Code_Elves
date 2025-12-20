@@ -113,3 +113,26 @@ function disableCards() {
     secondCard.classList.add("matched");
     resetBoard();
 }
+
+function unflipCards() {
+    lockBoard = true;
+
+    setTimeout(() => {
+        firstCard.classList.remove("flipped");
+        secondCard.classList.remove("flipped");
+        firstCard.textContent = "";
+        secondCard.textContent = "";
+
+        lives--;
+        timerDisplay.textContent = lives === 0
+            ? "Out of lives!"
+            : `Lives: ${lives}`;
+
+        if (lives === 0) {
+            restartGame();
+            return;
+        }
+
+        resetBoard();
+    }, 1000);
+}
