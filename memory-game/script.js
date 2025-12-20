@@ -84,3 +84,21 @@ function startMatchTimer() {
         }
     }, 1000);
 }
+
+function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+    if (this.classList.contains("matched")) return;
+
+    this.classList.add("flipped");
+    this.textContent = this.dataset.card;
+    if (!firstCard) {
+        clearInterval(idleTimer);
+        firstCard = this;
+        startMatchTimer();
+        return;
+    }
+    secondCard = this;
+    clearInterval(matchTimer);
+    checkMatch();
+}
