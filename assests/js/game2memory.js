@@ -1,5 +1,5 @@
 function initMemoryGame() {
-    game3Container.innerHTML = `
+    game2Container.innerHTML = `
         <div class="game-content memory-game">
 
             <button class="close-game-btn" id="closeMemoryGame">&times;</button>
