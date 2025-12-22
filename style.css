@@ -530,3 +530,13 @@ font-size: 7rem;
 .close-how-to-play-modal:hover {
     background: #ff3333;
 }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 5px 10px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #a3d9ff;
+}
