@@ -540,3 +540,96 @@ footer {
     font-size: 1rem;
     color: #a3d9ff;
 }
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .houses-container {
+        gap: 20px;
+    }
+    
+    .house {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .house-window {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .game-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .houses-container {
+        gap: 15px;
+    }
+    
+    .house {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .house-window {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .game-title {
+        font-size: 2.2rem;
+    }
+    
+    .controls {
+        gap: 15px;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .santa {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .houses-container {
+        gap: 10px;
+    }
+    
+    .house {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .house-window {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .house-name {
+        font-size: 1rem;
+    }
+    
+    .game-title {
+        font-size: 1.8rem;
+    }
+    
+    .instructions h2 {
+        font-size: 1.5rem;
+    }
+    
+    .santa {
+        width: 70px;
+        height: 70px;
+    }
+}
