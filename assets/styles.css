@@ -10,7 +10,7 @@ body {
     overflow:hidden; /* Prevents scrollbars from appearing */
 }
 
-maze-container {
+#maze-container {
     position: relative; /*allows for absolute positioning of child elements*/
     display: flex;
     flex-direction: column;
@@ -136,7 +136,7 @@ width: 4px;
     display: none; /* Hidden by default */
     animation: messageAppear 0.5s forwards;
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
-    border: 2ps solid #4CAF50
+    border: 2px solid #4CAF50;
 }
 
 #try-again {

@@ -72,16 +72,164 @@ function generateMaze() { //Maze generation logic
     }
 let slide, exitX, exitY;
 do {
-    side = Math.floor(Math.random() * 4);
+    side = Math.floor(Math.random() * 4); //Generate a random exit position on maze border
     switch (side) {
         case 0: 
-            exitX = (Math.floor(Math.random() * MAZE_SIZE));
-            exitY = 0;
+            exitY = Math.floor(Math.random() * MAZE_SIZE);
+            exitX = 0;
             break;
         case 1: 
             exitX = MAZE_SIZE - 1;
-            exitY = (Math.floor(Math.random * MAZE_SIZE));  /*check out later*/
+            exitY = Math.floor(Math.random() * MAZE_SIZE);  /*check out later*/
+            break;
+        case 2: 
+            exitY = MAZE_SIZE - 1;
+            exitX = Math.floor(Math.random() * MAZE_SIZE);  /*check out later*/
+            break;
+        case 3: 
+            exitX = 0;
+            exitY = Math.floor(Math.random() * MAZE_SIZE);  /*check out later*/
             break;
     }
+} while (exitX === 0 && exitY === 0);
+exitPos = {x: exitX, y: exitY};
+
+switch (side) {
+    case 0 :
+        maze[exitY][exitX].walls.top = false;
+        break;
+    case 1 :
+        maze[exitY][exitX].walls.right = false;
+        break;
+    case 2 :
+        maze[exitY][exitX].walls.bottom = false;
+        break;
+    case 3 :
+        maze[exitY][exitX].walls.left = false;
+        break;
+    }
 }
+
+function renderMaze() { //Rendering the maze
+    const mazeElement = document.getElementById("maze"); // Changed from maze-container
+    mazeElement.style.gridTemplateColumns = `repeat(${MAZE_SIZE}, ${CELL_SIZE}px)`;
+    mazeElement.style.gridTemplateRows = `repeat(${MAZE_SIZE}, ${CELL_SIZE}px)`;
+    mazeElement.style.width = MAZE_SIZE * CELL_SIZE + "px";
+    mazeElement.style.height = MAZE_SIZE * CELL_SIZE + "px";
+    mazeElement.innerHTML = ""; // Clear only the maze, not the player
+
+    for (let y = 0; y < MAZE_SIZE; y++) {
+        for (let x = 0; x < MAZE_SIZE; x++) {
+            const cell = document.createElement("div");
+            cell.className = "cell" + (x === exitPos.x && y === exitPos.y ? " exit" : "");
+            cell.style.width = CELL_SIZE + "px";
+            cell.style.height = CELL_SIZE + "px";
+
+            Object.entries(maze[y][x].walls).forEach(([dir, exists]) => {
+                if (exists) {
+                    const wall = document.createElement("div");
+                    wall.className = `wall ${dir}`;
+                    cell.appendChild(wall);
+                }
+            });
+
+            mazeElement.appendChild(cell); // Append to maze element
+        }
+    }
+    updatePlayerPosition();
 }
+
+function updatePlayerPosition() {
+    const playerElem = document.getElementById('player'); //Player movement logic
+    playerElem.style.width = CELL_SIZE * 0.6 + "px";
+    playerElem.style.height = CELL_SIZE * 0.6 + "px";
+    playerElem.style.left = player.x * CELL_SIZE + CELL_SIZE * 0.2 + "px";
+    playerElem.style.top = player.y * CELL_SIZE + CELL_SIZE * 0.2 + "px";
+
+    if (player.x === exitPos.x && player.y === exitPos.y) {
+        showMessage("Congratulations! You've helped Santa!");
+    }
+}
+
+function movePlayer(direction) {
+    if (!gameActive) return;
+    const walls = maze[player.y][player.x].walls;
+    switch (direction) {
+        case "up": 
+        if (!walls.top) player.y--;
+        break;
+        case "down": 
+        if (!walls.bottom) player.y++;
+        break;
+        case "left": 
+        if (!walls.left) player.x--;
+        break;
+        case "right": 
+        if (!walls.right) player.x++;
+        break;
+    }
+    updatePlayerPosition();
+}
+
+function showMessage(text) {
+    gameActive = false;
+    clearInterval(timer);
+    document.getElementById("message-text").textContent = text;
+    document.getElementById("message").style.display = "block";
+}
+
+function initGame() { //Game initialization
+gameActive = true;
+timeLeft = 60;
+document.getElementById("timer").textContent = `Timer: ${timeLeft}s`;
+document.getElementById("message").style.display = "none"; //Hide message section
+player = {x: 0, y: 0}; //reset player position to start
+generateMaze();
+renderMaze();
+
+
+timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("timer").textContent = `Time: ${timeLeft}s`;
+    if (timeLeft <= 0) {
+        showMessage("Time's up! You couldn't make it.");
+    }
+}, 1000);
+}
+
+document.addEventListener("keydown", (e) => { //Keyboard controls
+    const directions = {
+
+        ArrowUp: "up",
+        ArrowDown: "down",
+        ArrowLeft: "left",
+        ArrowRight: "right"
+    };
+
+    if (directions[e.key] && gameActive) {
+        movePlayer(directions[e.key]);
+        const buttonId = directions[e.key];
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.classList.add("hover-effect");
+        }
+}
+});
+
+document.addEventListener("keyUp", (e) => { //Remove hover effect on key release
+    const directions = {
+        ArrowUp: "up",
+        ArrowDown: "down",
+        ArrowLeft: "left",
+        ArrowRight: "right"
+    };
+    if (directions[e.key]) {
+        const buttonId = directions[e.key];
+    const button = document.getElementById(buttonId);
+    if (button) {
+        button.classList.remove("hover-effect");
+    }
+}
+})
+
+initGame();//Start the game on load
