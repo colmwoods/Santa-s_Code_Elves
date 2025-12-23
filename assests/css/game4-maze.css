@@ -1,0 +1,392 @@
+/* Game 4: Maze Game Styling */
+.mini-game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-content {
+    background: linear-gradient(to bottom, #006064, #004d40);
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 5px solid #ffcc00;
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
+}
+
+.close-game-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.close-game-btn:hover {
+    background: #ff3333;
+    transform: scale(1.1);
+}
+
+.game-header h2 {
+    color: #ffcc00;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat-box {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.stat-box h3 {
+    margin: 0;
+    color: #ffcc00;
+    font-size: 1.5rem;
+}
+
+.stat-box p {
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    color: #a3d9ff;
+}
+
+.btn {
+    background: linear-gradient(to right, #00bcd4, #0097a7);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-success {
+    background: linear-gradient(to right, #4CAF50, #2E7D32);
+}
+
+.btn-warning {
+    background: linear-gradient(to right, #ff9800, #e65100);
+}
+
+.back-home-btn {
+    background: linear-gradient(to right, #2196F3, #0d47a1);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.back-home-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.maze-game-area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maze-container {
+    position: relative;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #00bcd4;
+}
+
+#maze {
+    display: grid;
+    position: relative;
+    background: #e8f5e9;
+    border: 2px solid #388e3c;
+    margin: 0 auto;
+}
+
+.cell {
+    position: relative;
+    background: #e8f5e9;
+    border: none;
+}
+
+.wall {
+    position: absolute;
+    background: #388e3c;
+    z-index: 1;
+}
+
+.wall.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.wall.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+}
+
+.wall.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.wall.left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+}
+
+.exit {
+    background: #ffcdd2 !important;
+    position: relative;
+}
+
+.exit::after {
+    content: "🏁";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+#player {
+    position: absolute;
+    background: #d32f2f;
+    border-radius: 50%;
+    transition: all 0.2s;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.8);
+}
+
+#player::after {
+    content: "🎅";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.mobile-controls {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.direction-btn {
+    background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+    color: white;
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.direction-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.direction-btn:active {
+    transform: scale(0.95);
+}
+
+#left {
+    background: linear-gradient(to right, #2196F3, #0d47a1);
+}
+
+#right {
+    background: linear-gradient(to left, #2196F3, #0d47a1);
+}
+
+#up {
+    background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+}
+
+#down {
+    background: linear-gradient(to top, #4CAF50, #2E7D32);
+}
+
+.hover-effect {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8) !important;
+}
+
+.controls-info {
+    margin-top: 15px;
+    text-align: center;
+    color: #ffcc00;
+    font-size: 1.1rem;
+}
+
+.maze-result {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 2px solid #ffcc00;
+}
+
+#mazeResultTitle {
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+#mazeResultText {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.maze-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 100;
+    border: 3px solid #ffcc00;
+    min-width: 300px;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
+}
+
+#mazeMessageTitle {
+    color: #ffcc00;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+#mazeMessageText {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: grid !important;
+    }
+    
+    .controls-info p {
+        display: none;
+    }
+    
+    .maze-container {
+        padding: 10px;
+    }
+    
+    .cell {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .exit::after {
+        font-size: 16px;
+    }
+    
+    #player::after {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-stats {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .stat-box {
+        min-width: auto;
+    }
+    
+    .game-header h2 {
+        font-size: 2rem;
+    }
+    
+    .cell {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .direction-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+}

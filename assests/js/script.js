@@ -323,7 +323,7 @@ function showElvesInfo() {
                         </div>
                     </div>
                     <div class="elf" style="width:140px;text-align:center;">
-                        <img src="assests/images/elf-css.png" alt="CSS Elf" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:8px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80'" />
+                        <img src="assests/images/emilia.png" alt="CSS Elf" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:8px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80'" />
                         <p style="margin:6px 0 8px;font-weight:bold;">Emilia <br>CSS Elf</p>
                         <div style="display:flex;gap:8px;justify-content:center;">
                             <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="CSS Elf GitHub" style="color:white;font-size:1.2rem;"><i class="fab fa-github"></i></a>
@@ -331,7 +331,7 @@ function showElvesInfo() {
                         </div>
                     </div>
                     <div class="elf" style="width:140px;text-align:center;">
-                        <img src="assests/images/elf-logic.png" alt="Logic Elf" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:8px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80'" />
+                        <img src="assests/images/enrique.jpg" alt="Logic Elf" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:8px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80'" />
                         <p style="margin:6px 0 8px;font-weight:bold;">Enriqui <br>Logic Elf</p>
                         <div style="display:flex;gap:8px;justify-content:center;">
                             <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Logic Elf GitHub" style="color:white;font-size:1.2rem;"><i class="fab fa-github"></i></a>
@@ -339,7 +339,7 @@ function showElvesInfo() {
                         </div>
                     </div>
                     <div class="elf" style="width:140px;text-align:center;">
-                        <img src="assests/images/elf-debug.png" alt="Debug Elf" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:8px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80'" />
+                        <img src="assests/images/jawahir.png" alt="Debug Elf" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:8px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/80'" />
                         <p style="margin:6px 0 8px;font-weight:bold;">Jawahir <br>Debug Elf</p>
                         <div style="display:flex;gap:8px;justify-content:center;">
                             <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Debug Elf GitHub" style="color:white;font-size:1.2rem;"><i class="fab fa-github"></i></a>
