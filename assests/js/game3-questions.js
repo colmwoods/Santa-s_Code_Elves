@@ -3,7 +3,7 @@ let quizGameActive = false;
 let quizScore = 0;
 let quizTimeLeft = 30;
 let quizTimer;
-let quizQuestions = [];                 
+let quizQuestions = [];
 let currentQuestionIndex = 0;
 let quizQuestionsAnswered = 0;
 let quizLocked = false;
